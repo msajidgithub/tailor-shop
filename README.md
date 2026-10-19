@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Asif Ladies Tailors
 
-## Getting Started
+Bilingual (English / Urdu) marketing website for **Asif Ladies Tailors** — Lyari, Karachi — with pickup & delivery booking via WhatsApp.
 
-First, run the development server:
+Facebook: [asifladiestailor](https://www.facebook.com/asifladiestailor/)
+
+## Business details
+
+| Field | Value |
+|-------|--------|
+| Phone / WhatsApp | 0348 0276736 |
+| Shop 1 (Lyari) | Shop no 6, Al-Hayat Market, Suleman Azad Rd, Lyari Town, Karachi 75660 |
+| Shop 2 (PECHS) | Mezzanine floor, Plot 903-904-C, Near FH Autos, Block-2 PECHS, Karachi |
+| Hours | Mon–Sat 9 AM–8 PM · Sun 10 AM–3 PM |
+
+Edit shops in [`src/lib/content.ts`](src/lib/content.ts).
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features (v1)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Attractive brand landing page (navy / gold / magenta)
+- EN ↔ اردو language toggle with RTL
+- Services, pickup & delivery, gallery, visit/map
+- Booking form opens WhatsApp with a prefilled message
+- Floating WhatsApp button
 
-## Learn More
+## Future booking API (1B)
 
-To learn more about Next.js, take a look at the following resources:
+The form uses a stable `BookingPayload` in `src/lib/content.ts`. Later you can:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. `POST /api/bookings` with the same fields
+2. Store in Postgres
+3. Keep WhatsApp as an optional notify
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+See comments in [`src/components/BookingForm.tsx`](src/components/BookingForm.tsx) and [`src/lib/whatsapp.ts`](src/lib/whatsapp.ts).
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Or deploy the Next.js app to Vercel.
+
+## Photos
+
+Drop real images under `public/images/` — see [`public/images/README.md`](public/images/README.md).
