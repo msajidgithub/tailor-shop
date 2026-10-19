@@ -14,7 +14,7 @@ export const en = {
     brand: "Asif Ladies Tailors",
     eyebrow: "40+ years of trusted ladies stitching",
     headline: "Stitched with care for every occasion",
-    sub: "Two shops in Lyari & PECHS — custom suits, bridal, alterations, plus pickup & delivery at your door.",
+    sub: "Lyari & PECHS shops · bridal, suits, alterations · pickup & delivery.",
     ctaBook: "Book pickup",
     ctaWhatsapp: "WhatsApp Shop 1",
   },

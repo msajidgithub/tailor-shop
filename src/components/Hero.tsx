@@ -15,7 +15,8 @@ export function Hero() {
         <Image
           src={business.banner}
           alt=""
-          fill
+          width={1600}
+          height={900}
           priority
           className="hero-banner-img"
           sizes="100vw"
