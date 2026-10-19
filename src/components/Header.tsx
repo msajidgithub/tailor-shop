@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { business } from "@/lib/content";
+import { business, shops } from "@/lib/content";
 import { simpleWhatsAppUrl } from "@/lib/whatsapp";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLanguage } from "./LanguageProvider";
@@ -16,6 +16,7 @@ const links = [
 
 export function Header() {
   const { t } = useLanguage();
+  const shop1 = shops[0];
 
   return (
     <header className="site-header">
@@ -31,7 +32,9 @@ export function Header() {
           />
           <span className="brand-mark-text">
             <span className="brand-mark-name">{business.shortName}</span>
-            <span className="brand-mark-sub">Ladies Tailors</span>
+            <span className="brand-mark-sub">
+              {business.yearsInBusiness}+ yrs · Ladies Tailors
+            </span>
           </span>
         </a>
 
@@ -45,12 +48,12 @@ export function Header() {
 
         <div className="header-actions">
           <LanguageToggle />
-          <a className="btn btn-ghost btn-sm" href={`tel:${business.phoneTel}`}>
+          <a className="btn btn-ghost btn-sm" href={`tel:${shop1.phoneTel}`}>
             {t.nav.call}
           </a>
           <a
             className="btn btn-gold btn-sm"
-            href={simpleWhatsAppUrl()}
+            href={simpleWhatsAppUrl(shop1.whatsappDigits)}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -8,9 +8,9 @@ Facebook: [asifladiestailor](https://www.facebook.com/asifladiestailor/)
 
 | Field | Value |
 |-------|--------|
-| Phone / WhatsApp | 0348 0276736 |
-| Shop 1 (Lyari) | Shop no 6, Al-Hayat Market, Suleman Azad Rd, Lyari Town, Karachi 75660 |
-| Shop 2 (PECHS) | Mezzanine floor, Plot 903-904-C, Near FH Autos, Block-2 PECHS, Karachi |
+| Shop 1 (Lyari) | Shop no 6, Al-Hayat Market · **0321 2360150** |
+| Shop 2 (PECHS) | Plot 903-904-C, Block-2 PECHS · **0348 0276736** |
+| Heritage | 40+ years |
 | Hours | Mon–Sat 9 AM–8 PM · Sun 10 AM–3 PM |
 
 Edit shops in [`src/lib/content.ts`](src/lib/content.ts).

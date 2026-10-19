@@ -1,4 +1,4 @@
-import { business, type BookingPayload } from "./content";
+import { getShop, type BookingPayload } from "./content";
 
 const serviceLabels = {
   en: {
@@ -32,11 +32,15 @@ export function buildBookingMessage(
   lang: "en" | "ur",
 ): string {
   const L = serviceLabels[lang];
+  const shop = getShop(payload.shopId);
+  const shopLabel = lang === "ur" ? shop.labelUr : shop.labelEn;
+
   const lines =
     lang === "ur"
       ? [
           "السلام علیکم! آصف لیڈیز ٹیلرز — نئی بکنگ",
           "",
+          `دکان: ${shopLabel}`,
           `نام: ${payload.name}`,
           `فون: ${payload.phone}`,
           `سروس: ${L[payload.serviceType]}`,
@@ -45,6 +49,7 @@ export function buildBookingMessage(
       : [
           "Assalam o Alaikum! Asif Ladies Tailors — New booking",
           "",
+          `Shop: ${shopLabel}`,
           `Name: ${payload.name}`,
           `Phone: ${payload.phone}`,
           `Service: ${L[payload.serviceType]}`,
@@ -90,8 +95,7 @@ export function buildBookingMessage(
   return lines.join("\n");
 }
 
-export function buildWhatsAppUrl(text: string): string {
-  const digits = business.whatsappDigits;
+export function buildWhatsAppUrl(text: string, digits: string): string {
   return `https://wa.me/${digits}?text=${encodeURIComponent(text)}`;
 }
 
@@ -99,11 +103,15 @@ export function openWhatsAppBooking(
   payload: BookingPayload,
   lang: "en" | "ur",
 ): void {
-  const url = buildWhatsAppUrl(buildBookingMessage(payload, lang));
+  const shop = getShop(payload.shopId);
+  const url = buildWhatsAppUrl(
+    buildBookingMessage(payload, lang),
+    shop.whatsappDigits,
+  );
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
-export function simpleWhatsAppUrl(prefill?: string): string {
-  if (!prefill) return `https://wa.me/${business.whatsappDigits}`;
-  return buildWhatsAppUrl(prefill);
+export function simpleWhatsAppUrl(digits: string, prefill?: string): string {
+  if (!prefill) return `https://wa.me/${digits}`;
+  return buildWhatsAppUrl(prefill, digits);
 }

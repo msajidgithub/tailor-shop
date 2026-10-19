@@ -1,6 +1,7 @@
 "use client";
 
 import { business, shops } from "@/lib/content";
+import { simpleWhatsAppUrl } from "@/lib/whatsapp";
 import { useLanguage } from "./LanguageProvider";
 
 export function VisitUs() {
@@ -42,27 +43,30 @@ export function VisitUs() {
                 <div>
                   <h4>{t.visit.phone}</h4>
                   <p>
-                    <a href={`tel:${business.phoneTel}`}>
-                      {business.phoneDisplay}
+                    <a className="shop-phone" href={`tel:${shop.phoneTel}`}>
+                      {shop.phoneDisplay}
                     </a>
                   </p>
                 </div>
                 <div className="visit-links">
+                  <a className="btn btn-map" href={`tel:${shop.phoneTel}`}>
+                    {t.visit.callShop}: {shop.phoneDisplay}
+                  </a>
                   <a
-                    className="btn btn-map"
+                    className="btn btn-wa"
+                    href={simpleWhatsAppUrl(shop.whatsappDigits)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.visit.waShop}
+                  </a>
+                  <a
+                    className="btn btn-fb"
                     href={shop.mapLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     {t.visit.directions}
-                  </a>
-                  <a
-                    className="btn btn-fb"
-                    href={business.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t.visit.facebook}
                   </a>
                 </div>
               </div>

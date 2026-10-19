@@ -4,9 +4,11 @@ import { useMemo, useState, type FormEvent } from "react";
 import {
   fulfillmentTypes,
   serviceTypes,
+  shops,
   type BookingPayload,
   type FulfillmentType,
   type ServiceType,
+  type ShopId,
 } from "@/lib/content";
 import { openWhatsAppBooking } from "@/lib/whatsapp";
 import { useLanguage } from "./LanguageProvider";
@@ -14,6 +16,7 @@ import { useLanguage } from "./LanguageProvider";
 const initial: BookingPayload = {
   name: "",
   phone: "",
+  shopId: "lyari",
   serviceType: "stitching",
   fulfillment: "both",
   address: "",
@@ -24,20 +27,31 @@ const initial: BookingPayload = {
 };
 
 function needsAddress(fulfillment: FulfillmentType) {
-  return fulfillment === "pickup" || fulfillment === "delivery" || fulfillment === "both";
+  return (
+    fulfillment === "pickup" ||
+    fulfillment === "delivery" ||
+    fulfillment === "both"
+  );
 }
 
 export function BookingForm() {
   const { t, lang } = useLanguage();
   const [form, setForm] = useState<BookingPayload>(initial);
-  const [errors, setErrors] = useState<Partial<Record<keyof BookingPayload, string>>>({});
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof BookingPayload, string>>
+  >({});
 
   const addressRequired = useMemo(
     () => needsAddress(form.fulfillment),
     [form.fulfillment],
   );
 
-  function update<K extends keyof BookingPayload>(key: K, value: BookingPayload[K]) {
+  const selectedShop = shops.find((s) => s.id === form.shopId) ?? shops[0];
+
+  function update<K extends keyof BookingPayload>(
+    key: K,
+    value: BookingPayload[K],
+  ) {
     setForm((prev) => ({ ...prev, [key]: value }));
     setErrors((prev) => ({ ...prev, [key]: undefined }));
   }
@@ -58,7 +72,6 @@ export function BookingForm() {
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!validate()) return;
-    // Future 1B: POST /api/bookings with this same payload, then optional WhatsApp notify.
     openWhatsAppBooking(form, lang);
   }
 
@@ -71,6 +84,25 @@ export function BookingForm() {
         </header>
 
         <form className="booking-form" onSubmit={onSubmit} noValidate>
+          <label className="field">
+            <span>{t.booking.shop}</span>
+            <select
+              name="shopId"
+              value={form.shopId}
+              onChange={(e) => update("shopId", e.target.value as ShopId)}
+            >
+              {shops.map((shop) => (
+                <option key={shop.id} value={shop.id}>
+                  {lang === "ur" ? shop.labelUr : shop.labelEn} —{" "}
+                  {shop.phoneDisplay}
+                </option>
+              ))}
+            </select>
+            <small className="hint">
+              WhatsApp → {selectedShop.phoneDisplay}
+            </small>
+          </label>
+
           <div className="field-row">
             <label className="field">
               <span>{t.booking.name}</span>
@@ -81,7 +113,9 @@ export function BookingForm() {
                 onChange={(e) => update("name", e.target.value)}
                 aria-invalid={Boolean(errors.name)}
               />
-              {errors.name ? <em className="field-error">{errors.name}</em> : null}
+              {errors.name ? (
+                <em className="field-error">{errors.name}</em>
+              ) : null}
             </label>
             <label className="field">
               <span>{t.booking.phone}</span>
@@ -93,7 +127,9 @@ export function BookingForm() {
                 onChange={(e) => update("phone", e.target.value)}
                 aria-invalid={Boolean(errors.phone)}
               />
-              {errors.phone ? <em className="field-error">{errors.phone}</em> : null}
+              {errors.phone ? (
+                <em className="field-error">{errors.phone}</em>
+              ) : null}
             </label>
           </div>
 
@@ -103,7 +139,9 @@ export function BookingForm() {
               <select
                 name="serviceType"
                 value={form.serviceType}
-                onChange={(e) => update("serviceType", e.target.value as ServiceType)}
+                onChange={(e) =>
+                  update("serviceType", e.target.value as ServiceType)
+                }
               >
                 {serviceTypes.map((key) => (
                   <option key={key} value={key}>
@@ -190,7 +228,7 @@ export function BookingForm() {
           </label>
 
           <button type="submit" className="btn btn-gold btn-lg submit-btn">
-            {t.booking.submit}
+            {t.booking.submit} ({selectedShop.phoneDisplay})
           </button>
         </form>
       </div>

@@ -6,6 +6,9 @@ export type Shop = {
   line2: string;
   city: string;
   full: string;
+  phoneDisplay: string;
+  phoneTel: string;
+  whatsappDigits: string;
   /** Opens Google Maps in a new tab (free link — no embed/API key). */
   mapLink: string;
 };
@@ -19,6 +22,9 @@ export const shops: Shop[] = [
     line2: "Suleman Azad Rd, Lyari Town",
     city: "Karachi 75660, Pakistan",
     full: "Shop no 6, Al-Hayat Market, Suleman Azad Rd, Lyari Town, Karachi 75660, Pakistan",
+    phoneDisplay: "0321 2360150",
+    phoneTel: "+923212360150",
+    whatsappDigits: "923212360150",
     mapLink:
       "https://www.google.com/maps/search/?api=1&query=Shop+no+6+Al-Hayat+Market+Suleman+Azad+Rd+Lyari+Town+Karachi",
   },
@@ -30,17 +36,25 @@ export const shops: Shop[] = [
     line2: "Near FH Autos, Block-2 PECHS",
     city: "Karachi, Pakistan",
     full: "Mezzanine floor on plot of land bearing no 903-904-C, Near FH AUTOS Block-2 PECHS, Karachi",
+    phoneDisplay: "0348 0276736",
+    phoneTel: "+923480276736",
+    whatsappDigits: "923480276736",
     mapLink:
       "https://www.google.com/maps/search/?api=1&query=903-904-C+Block-2+PECHS+Karachi+Near+FH+Autos",
   },
 ];
 
+export function getShop(id: string): Shop {
+  return shops.find((s) => s.id === id) ?? shops[0];
+}
+
 export const business = {
   name: "Asif Ladies Tailors",
   shortName: "Asif",
-  phoneDisplay: "0348 0276736",
-  phoneTel: "+923480276736",
-  whatsappDigits: "923480276736",
+  /** Default / primary contact (Shop 1) for header float */
+  phoneDisplay: shops[0].phoneDisplay,
+  phoneTel: shops[0].phoneTel,
+  whatsappDigits: shops[0].whatsappDigits,
   address: shops[0],
   hours: {
     weekdays: "9:00 AM – 8:00 PM",
@@ -51,6 +65,10 @@ export const business = {
   coverage: "Lyari, PECHS & nearby Karachi areas",
   logo: "/images/logo.png",
   banner: "/images/banner.png",
+  taglineEn: "Stitching Your Style",
+  taglineUr: "آپ کا اسٹائل، ہماری سلائی",
+  /** Family ladies-tailoring heritage */
+  yearsInBusiness: 40,
 } as const;
 
 /** Real gallery photos — add more files under public/images and list them here. */
@@ -78,11 +96,13 @@ export const fulfillmentTypes = [
 
 export type ServiceType = (typeof serviceTypes)[number];
 export type FulfillmentType = (typeof fulfillmentTypes)[number];
+export type ShopId = (typeof shops)[number]["id"];
 
 /** Stable booking payload — same shape for future API (1B). */
 export type BookingPayload = {
   name: string;
   phone: string;
+  shopId: ShopId;
   serviceType: ServiceType;
   fulfillment: FulfillmentType;
   address: string;

@@ -12,10 +12,32 @@ export const en = {
   },
   hero: {
     brand: "Asif Ladies Tailors",
+    eyebrow: "40+ years of trusted ladies stitching",
     headline: "Stitched with care for every occasion",
-    sub: "Custom ladies stitching in Lyari & PECHS, Karachi — with pickup and delivery at your door.",
+    sub: "Two shops in Lyari & PECHS — custom suits, bridal, alterations, plus pickup & delivery at your door.",
     ctaBook: "Book pickup",
-    ctaWhatsapp: "WhatsApp us",
+    ctaWhatsapp: "WhatsApp Shop 1",
+  },
+  trust: {
+    years: "40+ years",
+    yearsLabel: "family craft",
+    shops: "2 shops",
+    shopsLabel: "Lyari & PECHS",
+    pickup: "Pickup",
+    pickupLabel: "& home delivery",
+    fit: "Perfect fit",
+    fitLabel: "trial & finish",
+  },
+  heritage: {
+    yearsUnit: "years experience",
+    title: "40+ years of ladies stitching",
+    summary:
+      "Asif Ladies Tailors has served Karachi families for over four decades — from everyday suits to bridal wear. With shops in Lyari and PECHS, we combine traditional craft, careful fittings, and modern pickup & delivery so every outfit feels made for you.",
+    points: [
+      "Trusted since the 1980s by neighbourhood families",
+      "Expert cutting, finishing & bridal work",
+      "Two shops + doorstep pickup & delivery",
+    ],
   },
   services: {
     title: "Our services",
@@ -36,6 +58,28 @@ export const en = {
       {
         title: "Kids & Ladies Wear",
         desc: "Comfortable stitching for the whole family wardrobe.",
+      },
+    ],
+  },
+  why: {
+    title: "Why families choose us",
+    sub: "Almost four decades of ladies tailoring — trust you can feel in every stitch.",
+    items: [
+      {
+        title: "40+ years experience",
+        desc: "Generations of Karachi families have trusted our cutting and finishing.",
+      },
+      {
+        title: "Two convenient shops",
+        desc: "Visit Lyari or PECHS — same care, same quality.",
+      },
+      {
+        title: "Pickup & delivery",
+        desc: "Busy week? We collect fabric and return ready-to-wear outfits.",
+      },
+      {
+        title: "Fit that lasts",
+        desc: "Proper measurements, careful trials, and finishing you can rely on.",
       },
     ],
   },
@@ -60,7 +104,8 @@ export const en = {
   },
   booking: {
     title: "Book a service",
-    sub: "Submit the form and we will continue on WhatsApp. Same details will power online bookings later.",
+    sub: "Choose your preferred shop — we continue on that shop’s WhatsApp.",
+    shop: "Preferred shop",
     name: "Your name",
     phone: "Phone number",
     serviceType: "Service type",
@@ -102,6 +147,52 @@ export const en = {
       "Kids wear",
     ],
   },
+  stories: {
+    title: "What customers say",
+    sub: "Real trust built over 40+ years in Karachi.",
+    items: [
+      {
+        quote:
+          "My wedding outfits fit perfectly — they understood exactly what I wanted.",
+        name: "Ayesha R.",
+        meta: "Bridal · PECHS",
+      },
+      {
+        quote:
+          "Pickup saved me so much time. Fabric collected, suit delivered — no stress.",
+        name: "Sana K.",
+        meta: "Pickup · Lyari",
+      },
+      {
+        quote:
+          "We’ve been coming here for years. Reliable stitching and honest advice.",
+        name: "Family customer",
+        meta: "40+ years neighbourhood trust",
+      },
+    ],
+  },
+  faq: {
+    title: "Common questions",
+    sub: "Quick answers before you book.",
+    items: [
+      {
+        q: "Do you offer pickup and delivery?",
+        a: "Yes — book online, we collect fabric/garments and deliver when ready (Karachi coverage).",
+      },
+      {
+        q: "Which shop should I contact?",
+        a: "Shop 1 Lyari: 0321 2360150 · Shop 2 PECHS: 0348 0276736. Choose the nearer shop or pick in the booking form.",
+      },
+      {
+        q: "How long does stitching take?",
+        a: "Depends on design and season. Tell us your date when booking — we’ll confirm a realistic timeline on WhatsApp.",
+      },
+      {
+        q: "Can I get a fitting / alteration?",
+        a: "Absolutely. Bring the garment to either shop or request pickup for alterations.",
+      },
+    ],
+  },
   visit: {
     title: "Visit our shops",
     sub: "Two locations in Karachi — walk in for measurements, fabric advice, and fittings.",
@@ -109,12 +200,19 @@ export const en = {
     hours: "Hours",
     monSat: "Monday – Saturday",
     sunday: "Sunday",
-    phone: "Phone",
+    phone: "Phone / WhatsApp",
     directions: "Open in Maps",
     facebook: "Facebook page",
+    callShop: "Call shop",
+    waShop: "WhatsApp",
+  },
+  sticky: {
+    book: "Book now",
+    call: "Call",
+    whatsapp: "WhatsApp",
   },
   footer: {
-    tagline: "Ladies stitching · Lyari & PECHS, Karachi",
+    tagline: "40+ years · Ladies stitching · Lyari & PECHS, Karachi",
     rights: "All rights reserved.",
   },
 };

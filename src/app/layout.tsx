@@ -21,13 +21,13 @@ const urdu = Noto_Nastaliq_Urdu({
 });
 
 export const metadata: Metadata = {
-  title: "Asif Ladies Tailors | Lyari, Karachi",
+  title: "Asif Ladies Tailors | 40+ Years | Lyari & PECHS, Karachi",
   description:
-    "Custom ladies stitching in Lyari, Karachi with pickup and delivery. Bridal, suits, alterations, and fittings.",
+    "40+ years of ladies stitching in Karachi. Two shops in Lyari & PECHS — bridal, suits, alterations, pickup & delivery.",
   openGraph: {
-    title: "Asif Ladies Tailors",
+    title: "Asif Ladies Tailors — 40+ Years Experience",
     description:
-      "Custom ladies stitching with pickup and delivery across Lyari and nearby Karachi.",
+      "Trusted ladies tailoring since over four decades. Lyari & PECHS shops with pickup and delivery.",
     type: "website",
   },
 };

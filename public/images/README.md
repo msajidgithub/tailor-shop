@@ -1,10 +1,16 @@
 # Images
 
-Replace gallery placeholders on the site with real shop photos.
+Current assets:
 
-Suggested files (optional — gallery currently uses styled placeholders):
+| File | Use |
+|------|-----|
+| `logo.png` | Header emblem |
+| `banner.png` | Hero banner |
+| `teal-ruffled-lattice-top.png` | Gallery item |
 
-- `hero.jpg` — full-bleed atelier / garment photo for a future photo hero
-- `gallery-1.jpg` … `gallery-6.jpg` — finished work samples
+## Add more gallery photos
 
-After adding files, update `src/components/Gallery.tsx` and/or `Hero.tsx` to use `next/image`.
+1. Put files in this folder (prefer kebab-case names, e.g. `bridal-suit.jpg`)
+2. Add an entry in `src/lib/content.ts` → `galleryItems`
+
+Original uploads with spaces are kept; the site uses the kebab-case / short copies.

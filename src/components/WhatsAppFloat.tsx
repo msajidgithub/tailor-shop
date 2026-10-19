@@ -1,18 +1,21 @@
 "use client";
 
+import { shops } from "@/lib/content";
 import { simpleWhatsAppUrl } from "@/lib/whatsapp";
 import { useLanguage } from "./LanguageProvider";
 
 export function WhatsAppFloat() {
   const { t } = useLanguage();
+  const shop1 = shops[0];
 
   return (
     <a
       className="whatsapp-float"
-      href={simpleWhatsAppUrl()}
+      href={simpleWhatsAppUrl(shop1.whatsappDigits)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={t.nav.whatsapp}
+      aria-label={`${t.nav.whatsapp} ${shop1.phoneDisplay}`}
+      title={`Shop 1: ${shop1.phoneDisplay}`}
     >
       <svg viewBox="0 0 32 32" aria-hidden width="28" height="28">
         <path
