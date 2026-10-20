@@ -8,7 +8,7 @@ Facebook: [asifladiestailor](https://www.facebook.com/asifladiestailor/)
 
 | Field | Value |
 |-------|--------|
-| Shop 1 (Lyari) | Shop no 6, Al-Hayat Market · **0321 2360150** |
+| Shop 1 (Lyari) | Shop no 6, Al-Hayat Market, Suleman Azad Rd, Agra Taj Colony New Karli · **0321 2360150** |
 | Shop 2 (PECHS) | Plot 903-904-C, Block-2 PECHS · **0348 0276736** |
 | Heritage | 40+ years |
 | Hours | Mon–Sat 9 AM–8 PM · Sun 10 AM–3 PM |
@@ -44,12 +44,20 @@ See comments in [`src/components/BookingForm.tsx`](src/components/BookingForm.ts
 
 ## Deploy
 
+Live (Vercel Hobby): **[https://asiftailor.vercel.app](https://asiftailor.vercel.app)**
+
 ```bash
 npm run build
 npm start
 ```
 
-Or deploy the Next.js app to Vercel.
+Or deploy with the Vercel CLI:
+
+```bash
+vercel deploy --prod
+```
+
+Project: `asiftailor` (Hobby). After you connect GitHub in the Vercel dashboard (Login Connection), pushes to `master` redeploy automatically.
 
 ## Photos
 

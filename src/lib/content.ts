@@ -19,14 +19,13 @@ export const shops: Shop[] = [
     labelEn: "Shop 1 — Lyari",
     labelUr: "دکان ۱ — لیاری",
     line1: "Shop no 6, Al-Hayat Market",
-    line2: "Suleman Azad Rd, Lyari Town",
+    line2: "Suleman Azad Rd, Agra Taj Colony New Karli",
     city: "Karachi 75660, Pakistan",
-    full: "Shop no 6, Al-Hayat Market, Suleman Azad Rd, Lyari Town, Karachi 75660, Pakistan",
+    full: "Shop no 6, Al-Hayat Market, Suleman Azad Rd, Agra Taj Colony New Karli, Karachi 75660, Pakistan",
     phoneDisplay: "0321 2360150",
     phoneTel: "+923212360150",
     whatsappDigits: "923212360150",
-    mapLink:
-      "https://www.google.com/maps/search/?api=1&query=Shop+no+6+Al-Hayat+Market+Suleman+Azad+Rd+Lyari+Town+Karachi",
+    mapLink: "https://share.google/Y1TJwUyhf2ABess30",
   },
   {
     id: "pechs",
@@ -77,6 +76,11 @@ export const galleryItems = [
     src: "/images/teal-ruffled-lattice-top.png",
     labelEn: "Teal ruffled lattice neckline",
     labelUr: "ٹیال رفلیڈ لیٹس نیک لائن",
+  },
+  {
+    src: "/images/stitched-dori-peeng-suit.png",
+    labelEn: "Stitched dori peeng suit",
+    labelUr: "سلائی شدہ ڈوری پینگ سوٹ",
   },
 ] as const;
 

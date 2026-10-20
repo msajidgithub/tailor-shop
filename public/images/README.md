@@ -7,6 +7,7 @@ Current assets:
 | `logo.png` | Header emblem |
 | `banner.png` | Hero banner |
 | `teal-ruffled-lattice-top.png` | Gallery item |
+| `stitched-dori-peeng-suit.png` | Gallery item (dori peeng suit) |
 
 ## Add more gallery photos
 
